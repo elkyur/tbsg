@@ -18,8 +18,7 @@ import java.util.PriorityQueue;
 public class Dijstra {
 
     Comparator<BNode> comp;
-    HashSet<BNode> greenpoints;
-    HashSet<BNode> yellowpoints;
+ 
 
     public Dijstra() {
         this.comp = new Comparator<BNode>() {

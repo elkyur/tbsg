@@ -17,8 +17,8 @@ import java.util.LinkedList;
  */
 public abstract class BattleGraph extends BGraph {
     
-   public abstract LinkedList allNodes();
    public abstract boolean Siirtyma(Node alku, Node loppu);
+   
    
     
     

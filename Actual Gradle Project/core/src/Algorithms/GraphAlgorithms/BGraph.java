@@ -16,10 +16,18 @@ public abstract class BGraph {
 
     public abstract LinkedList<BNode> getNeighbours(BNode n);
 
+    public abstract LinkedList<BNode> allNodes();
+    
+    public abstract void justforfun();
+
     public void clear(LinkedList<BNode> nodet) {
         for (BNode node : nodet) {
             node.reset();
         }
 
+    }
+
+    public void clearUsingOwnList() {
+        clear(allNodes());
     }
 }

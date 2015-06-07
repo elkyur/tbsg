@@ -18,17 +18,13 @@ import java.util.LinkedList;
 public class SquareFieldPoint<Obj> extends Node {
 
     private TerrainType terrain;
-    private LinkedList<SquareFieldPoint> neighbours;
+    private BattleObject objectonthespot;
 
     public SquareFieldPoint(TerrainType terrain) {
         this.terrain = terrain;
-        this.neighbours = new LinkedList<SquareFieldPoint>();
     }
 
-    public LinkedList<SquareFieldPoint> returnNeighbours() {
-        return neighbours;
 
-    }
 
     public void redefineTerrain(TerrainType terrain) {
 
@@ -39,10 +35,12 @@ public class SquareFieldPoint<Obj> extends Node {
 
         return terrain;
     }
+    
+ 
 
     @Override
     public BattleObject returnBattleObject() {
-        return null;
+        return this.objectonthespot;
     }
 
     @Override
