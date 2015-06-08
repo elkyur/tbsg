@@ -5,6 +5,7 @@
  */
 package Algorithms.GraphAlgorithms;
 
+import Battle.Objects.Mover;
 import java.util.ArrayDeque;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -46,7 +47,7 @@ public class Dijstra {
      *
      * REMEMBER TO NODES CLEAR AFTER OR BEFORE USE!!!
      */
-    public void radiusOfDijstra(double max, BNode startingNode, int maxNumberofpoints, BGraph graafi, HashSet<BNode> greenpoints, HashSet<BNode> yellowpoints) {
+    public void radiusOfDijstra(Mover m, double max, BNode startingNode, int maxNumberofpoints, BGraph graafi, HashSet<BNode> greenpoints, HashSet<BNode> yellowpoints) {
 
         startingNode.defineDist(0);
         PriorityQueue<BNode> pepsi = new PriorityQueue<BNode>(maxNumberofpoints, this.comp);
@@ -59,6 +60,12 @@ public class Dijstra {
             }
             LinkedList<BNode> f = graafi.getNeighbours(u);
             for (BNode v : f) {
+                // Estäjä, estää ruudule pääsyn jos sinne ei saisi mennä
+             if (!graafi.Allowed(m, v))
+             {
+              continue;
+              }
+                
                 double alt = u.returnDist() + v.groundCost();
                 if ((alt < v.returnDist())) {
                     v.defineDist(alt);

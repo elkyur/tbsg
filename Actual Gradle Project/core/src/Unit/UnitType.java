@@ -4,17 +4,12 @@
  * and open the template in the editor.
  */
 
-package longheroesproject;
+package Unit;
 
 /**
  *
  * @author elkyur
  */
-public interface FieldObject {
-    
-    
-    public int[] returnCordinates();
-    public Object objectType();
-    
+public class UnitType {
     
 }

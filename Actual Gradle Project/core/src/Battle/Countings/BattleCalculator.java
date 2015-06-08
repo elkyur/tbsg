@@ -18,8 +18,7 @@ public class BattleCalculator {
     
     public boolean linearattack(BattleStack attacker, BattleStack defender)
     {
-    int atk = attacker.atk();
-    int def = defender.def();
+  
         
         
     

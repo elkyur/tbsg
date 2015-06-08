@@ -9,6 +9,8 @@ import Algorithms.GraphAlgorithms.BNode;
 import Algorithms.GraphAlgorithms.Dijstra;
 import Battle.Field.Abstract.BattleGraph;
 import Battle.Field.SquareField.SquareField;
+import Battle.Objects.BattleStack;
+import Battle.Objects.Mover;
 import Battle.Terrain.TerrainType;
 import java.util.HashSet;
 
@@ -25,6 +27,7 @@ public class DijstraTest {
     }
     public static void YksinkertainenTestaus()
     {
+    BattleStack stacki = new BattleStack();
     HashSet<BNode> greenpoints = new HashSet<BNode>();
     HashSet<BNode> yellowpoints = new HashSet<BNode>();
     TerrainType simple = new TerrainType(1);
@@ -37,7 +40,7 @@ public class DijstraTest {
     BNode start = fieldi.getMatrice()[0][0];
 
     
-    dijstra.radiusOfDijstra(3, start, 100 , fieldi, greenpoints, yellowpoints);
+    dijstra.radiusOfDijstra(stacki, 3, start, 100 , fieldi, greenpoints, yellowpoints);
     
     System.out.println("Keltaiset:");
     System.out.println(yellowpoints.toString());
