@@ -48,8 +48,10 @@ public class Dijstra {
      */
     public void radiusOfDijstra(double max, BNode startingNode, int maxNumberofpoints, BGraph graafi, HashSet<BNode> greenpoints, HashSet<BNode> yellowpoints) {
 
+        startingNode.defineDist(0);
         PriorityQueue<BNode> pepsi = new PriorityQueue<BNode>(maxNumberofpoints, this.comp);
         startingNode.defineDist(0);
+        pepsi.add(startingNode);
         while (!pepsi.isEmpty()) {
             BNode u = pepsi.poll();
             if (u.returnColor() == false) {
@@ -61,7 +63,7 @@ public class Dijstra {
                 if ((alt < v.returnDist())) {
                     v.defineDist(alt);
                     v.defineCameFrom(u);
-                    if (alt < max) {
+                    if (alt <= max) {
                         greenpoints.add(v);
                         pepsi.add(v);
 

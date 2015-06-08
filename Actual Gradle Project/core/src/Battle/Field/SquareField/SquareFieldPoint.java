@@ -19,12 +19,23 @@ public class SquareFieldPoint<Obj> extends Node {
 
     private TerrainType terrain;
     private BattleObject objectonthespot;
+    private String name;
 
     public SquareFieldPoint(TerrainType terrain) {
         this.terrain = terrain;
     }
 
+    //FOR TESTING
+    
+    public void setName(String muumilimu) {
+        this.name = muumilimu;
+    }
+    
+    //FOR TESTING
 
+    public String returnName() {
+        return name;
+    }
 
     public void redefineTerrain(TerrainType terrain) {
 
@@ -35,8 +46,6 @@ public class SquareFieldPoint<Obj> extends Node {
 
         return terrain;
     }
-    
- 
 
     @Override
     public BattleObject returnBattleObject() {

@@ -28,20 +28,23 @@ public class DijstraTest {
     HashSet<BNode> greenpoints = new HashSet<BNode>();
     HashSet<BNode> yellowpoints = new HashSet<BNode>();
     TerrainType simple = new TerrainType(1);
-    SquareField fieldi = new SquareField(10,10);
+    SquareField fieldi = new SquareField(6,6);
     fieldi.initMatrice();
     fieldi.setSameTerrainForAll(simple);
     fieldi.initNeighboo();
     Dijstra dijstra = new Dijstra();
+    fieldi.clearUsingOwnList();
     BNode start = fieldi.getMatrice()[0][0];
-    System.out.println(fieldi.allNodes().toArray().toString());
-    
-  //  fieldi.clearUsingOwnList();
+
     
     dijstra.radiusOfDijstra(3, start, 100 , fieldi, greenpoints, yellowpoints);
     
-    System.out.println("päästiin perille");
+    System.out.println("Keltaiset:");
     System.out.println(yellowpoints.toString());
+    System.out.println("Vihreät:");
+    System.out.println(yellowpoints.toString());
+
+    
     
     
     }

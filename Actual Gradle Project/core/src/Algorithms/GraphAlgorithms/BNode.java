@@ -49,7 +49,7 @@ public abstract class BNode<Obj> {
 
     public void reset() {
         this.camefrom = null;
-        this.dist = -1;
+        this.dist = Integer.MAX_VALUE;
         this.color = true;
     }
 

@@ -39,6 +39,9 @@ public class SquareField extends BattleGraph {
             for (int j = 0; j < matrice[0].length; j++) {
                 matrice[i][j] = new SquareFieldPoint(null);
                 this.nodes.add(matrice[i][j]);
+                // For tests:
+                String k = i + "," + j;
+                matrice[i][j].setName(k);
             }
 
         }
@@ -123,13 +126,13 @@ public class SquareField extends BattleGraph {
     @Override
     public LinkedList<BNode> getNeighbours(BNode n) {
 
-        return null;
+        return n.returnNeighbours();
 
     }
 
     @Override
     public LinkedList allNodes() {
-        return this.allNodes();
+        return this.nodes;
     }
 
     @Override
