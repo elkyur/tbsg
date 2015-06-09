@@ -1,0 +1,6 @@
+Luokkien nimet isolla
+pakettien nimet pienell‰
+metodien nimet pienell‰
+muuttujien nimet pienell‰
+	- Kuvaavia muuttujien nimi‰ (esim ei pepsi kola)
+	- Poikkeuksena muuttujissa luokan jozkat joilla on public Static m‰‰riteltyj‰ muuttujia, n‰m‰ nimet‰‰n isolla kirjaimella
