@@ -4,17 +4,24 @@
  * and open the template in the editor.
  */
 
-package longheroesproject;
+package Battle.Objects.MoverMem;
+
+import Algorithms.GraphAlgorithms.BNode;
 
 /**
  *
  * @author elkyur
  */
-public interface FieldObject {
+public class YellowPoint {
     
+    public double probability;
+    public BNode camefrom;
     
-    public int[] returnCordinates();
-    public Object objectType();
+    public YellowPoint()
+    {
+    
+    }
+    
     
     
 }
