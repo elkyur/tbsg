@@ -4,28 +4,27 @@
  * and open the template in the editor.
  */
 
-package Battle.Countings;
+package Battle.Objects.MoverMem;
 
-import Battle.Objects.BattleStack;
+import Algorithms.GraphAlgorithms.BNode;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  *
  * @author elkyur
  */
-public class BattleCalculator {
+public class MoverMemory {
     
+    HashSet<BNode> greenpoints;
+    HashMap<BNode, YellowPoint> yellowpoints;
     
-    
-    public boolean linearattack(BattleStack attacker, BattleStack defender)
+    public MoverMemory()
     {
-  
-        
-        
     
-    
-    return true;
     
     }
+    
     
     
 }
