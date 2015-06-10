@@ -5,59 +5,39 @@
  */
 package Battle.Objects;
 
+import Battle.Field.Abstract.Node;
 import java.util.LinkedList;
 import longheroesproject.BuffOnBattleStack;
-import longheroesproject.FieldObject;
 import Unit.UnitStack;
 
 /**
  *
  * @author elkyur
  */
-public class BattleStack implements FieldObject {
+public class BattleStack extends Mover implements BattleObject {
 
-    private int[] cordinates;
-    private UnitStack stack;
-    private LinkedList<BuffOnBattleStack> buffsaffected;
-    private int temporalATKBonus;
-    private int temporalDEFBonus;
-    private int temporalSPDBonus;
-    private int hp;
+    private LinkedList<UnitStack> stacks;
+    
+
+    public BattleStack() {
+
+    }
+
+  
+
+    public LinkedList<UnitStack> returnStacks() {
+        return stacks;
+    }
+
+    public void setStacks(LinkedList<UnitStack> stacks) {
+        this.stacks = stacks;
+    }
+
+   
 
     @Override
-    public int[] returnCordinates() {
-        return cordinates;
-    }
-
-    @Override
-    public Object objectType() {
-        return this.getClass();
-    }
-
-    public int atk() {
-        return this.temporalATKBonus;
-
-    }
-
-    public int def() {
-
-        return this.temporalDEFBonus;
-    }
-    
-    public int spd()
-    {
-    
-    return this.temporalSPDBonus;
-    }
-    public UnitStack returnStack()
-    {
-    return this.stack;
-    }
-    public int hp()
-    {
-    return this.hp;
-    
-    
+    public Class getObjclass() {
+        return BattleStack.class;
     }
 
 }

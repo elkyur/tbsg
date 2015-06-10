@@ -14,15 +14,15 @@ package Unit;
 
 public class Unit {
     
-    private int hp;
+    private int maxhp;
+    private int curhp;
     private int maxdamage;
     private int mindamage;
-    private String name;
     private int range;
     private int movementgrids;
     private int atkskill;
     private int defenseskill;
-    private int atkspeed;
+    private int freq;
     
     
     public Unit()
@@ -31,6 +31,11 @@ public class Unit {
     
     
     }
+    public void setAttributes(int[] atr)
+    {
+    int l = atr.length;
+    }
+    
    
     
     
