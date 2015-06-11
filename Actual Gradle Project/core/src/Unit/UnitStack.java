@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class UnitStack {
 
     private ArrayList<Unit> units;
+    private int count;
 
     public UnitStack() {
 
@@ -25,6 +26,21 @@ public class UnitStack {
 
     public void setUnits(ArrayList<Unit> units) {
         this.units = units;
+    }
+    
+    public int returnCount(){
+    	return count;
+    }
+    
+    public void setCount(int count){
+    	this.count = count;
+    }
+    
+    public UnitType returnUnitType(){
+    	if(units.size() > 0){
+    		return units.get(0).returnUnitType();
+    	}
+    	return null;
     }
     
 

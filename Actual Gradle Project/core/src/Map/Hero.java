@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -103,30 +103,3 @@ public class Hero {
     
     
 }
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Map;
-
-/**
- *
- * @author alexey
- */
-
-import java.util.List;
-
-public class Hero {
-    String name;
-    int defence;
-    int attack;
-    int speed;
-    int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
-    List unitID;
-   
-    
-    
-}
->>>>>>> 89f32d94b4aa58814d6f8dd1d8756b74784cb037
