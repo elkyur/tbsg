@@ -14,29 +14,25 @@ package Unit;
 
 public class Unit {
     
-    private int maxhp;
-    private int curhp;
-    private int maxdamage;
-    private int mindamage;
-    private int range;
-    private int movementgrids;
-    private int atkskill;
-    private int defenseskill;
-    private int freq;
+    private UnitType ut;
+    private int currHP;
+    //Effect one list OR multiple list own for all example Spells effect, ect.
     
     
     public Unit()
     {
-    
-    
-    
+    	
     }
+    
     public void setAttributes(int[] atr)
     {
     int l = atr.length;
     }
     
-   
+   public UnitType returnUnitType(){
+	   return ut;
+   }
+
     
     
 }
