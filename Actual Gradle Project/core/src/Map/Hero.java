@@ -19,9 +19,9 @@ public class Hero {
     int attack;
     int speed;
     int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
-    int[] stackId=new int[]{0,0,0,0,0,0,0,0};
-    int[] stackSize=new int[]{0,0,0,0,0,0,0,0};
-    int[] spellbook=new int[100];
+    int[] stackId = new int[]{0,0,0,0,0,0,0,0};
+    int[] stackSize = new int[]{0,0,0,0,0,0,0,0};
+    int[] spellbook = new int[100];
     List<Integer> items=new ArrayList<Integer>();
     List<Integer> wearedItems=new ArrayList<Integer>();
     
