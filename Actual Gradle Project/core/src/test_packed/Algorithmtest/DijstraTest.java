@@ -36,11 +36,10 @@ public class DijstraTest {
     fieldi.setSameTerrainForAll(simple);
     fieldi.initNeighboo();
     Dijstra dijstra = new Dijstra();
-    fieldi.clearUsingOwnList();
     BNode start = fieldi.getMatrice()[0][0];
-
     
-    dijstra.radiusOfDijstra(stacki, 3, start, 100 , fieldi, greenpoints, yellowpoints);
+    
+    dijstra.radiusOfDijstra(stacki, 3, start, 100 , fieldi);
     
     System.out.println("Keltaiset:");
     System.out.println(yellowpoints.toString());
