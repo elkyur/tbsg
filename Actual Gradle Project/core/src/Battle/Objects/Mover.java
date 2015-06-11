@@ -6,6 +6,7 @@
 package Battle.Objects;
 
 import Battle.Field.Abstract.Node;
+import Battle.Objects.MoverMem.MoverMemory;
 
 /**
  *
@@ -15,9 +16,10 @@ public abstract class Mover {
 
     private Node location;
     private int entrancecode;
+    private MoverMemory movementhistory;
 
     public Mover() {
-
+        this.movementhistory = new MoverMemory();
     }
 
     public void setEntrancecode(int ent) {
@@ -36,5 +38,12 @@ public abstract class Mover {
     public Node getNode() {
         return location;
     }
+    
+    public MoverMemory returnMem()
+    {
+    return movementhistory;
+    }
+    
+    
 
 }

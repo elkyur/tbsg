@@ -19,6 +19,7 @@ public class Hero {
     int speed;
     int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
     List unitID;
+   
     
     
 }
