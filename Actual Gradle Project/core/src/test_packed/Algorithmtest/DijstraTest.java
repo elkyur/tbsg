@@ -28,8 +28,7 @@ public class DijstraTest {
     public static void YksinkertainenTestaus()
     {
     BattleStack stacki = new BattleStack();
-    HashSet<BNode> greenpoints = new HashSet<BNode>();
-    HashSet<BNode> yellowpoints = new HashSet<BNode>();
+
     TerrainType simple = new TerrainType(1);
     SquareField fieldi = new SquareField(6,6);
     fieldi.initMatrice();
@@ -41,11 +40,14 @@ public class DijstraTest {
     
     dijstra.radiusOfDijstra(stacki, 3, start, 100 , fieldi);
     
+        HashSet<BNode> greenpoints = stacki.returnMem().returnGreen();
+    HashSet<BNode> yellowpoints = stacki.returnMem().returnYellow();
+    
     System.out.println("Keltaiset:");
     System.out.println(yellowpoints.toString());
     System.out.println("Vihreät:");
-    System.out.println(yellowpoints.toString());
-
+    System.out.println(greenpoints.toString());
+    
     
     
     
