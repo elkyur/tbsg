@@ -7,7 +7,7 @@ import graphics.components.ImagePanel;
 public class BattleCard {
 	//Readonly fields
 	private final String name;
-	private final String castleNtype; //Format example: Rampart: Armored
+	private final String castleNtype; //Format example: Rampart: Tier 5, Armored, Piercing
 	//ModifiableDields
 	private int atk;
 	private int def;
