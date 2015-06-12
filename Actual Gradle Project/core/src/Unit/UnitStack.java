@@ -6,34 +6,32 @@
 package Unit;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
  * @author elkyur
  */
-public class UnitStack {
+public class UnitStack{
 
-    private ArrayList<Unit> units;
-    private int count;
+    private ArrayList<Unit> units =new ArrayList<Unit>();
+    
 
     public UnitStack() {
 
     }
 
-    public ArrayList<Unit> returnUnit() {
+    public ArrayList<Unit> returnUnitsAsArrayList() {
         return units;
     }
-
-    public void setUnits(ArrayList<Unit> units) {
-        this.units = units;
+    public void testo(){
+        for(Unit u:units){
+            u.testOut();
+        }
     }
     
     public int returnCount(){
-    	return count;
-    }
-    
-    public void setCount(int count){
-    	this.count = count;
+    	return units.size();
     }
     
     public UnitType returnUnitType(){
@@ -42,6 +40,40 @@ public class UnitStack {
     	}
     	return null;
     }
+
+    public boolean equals(Unit unit){  //Equals only types not count.
+        if(this.returnUnitType().equals(unit.returnUnitType())){
+            return true;
+        }
+        return false;
+    }
+    
+    public void addUnit(Unit u){
+        this.units.add(u);
+    }
+    
+    public void receiveStack(UnitStack u){
+        ArrayList<Unit> l= u.returnUnitsAsArrayList();
+        for(Unit un : l){
+            this.units.add(un);
+        }
+    }
+    
+    public UnitStack sendStack(ArrayList<Integer> places){
+        Collections.sort(places);
+        UnitStack sent=new UnitStack();
+        for (int place:places){
+            sent.addUnit(this.units.get(place));
+        }
+        int i = places.size()-1;
+        while(i>=0){
+            int r=places.get(i);
+            units.remove(r);
+            i--;
+        }
+        return sent;
+    }
+  
     
 
 }
