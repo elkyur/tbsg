@@ -5,6 +5,8 @@
  */
 package Battle.Terrain;
 
+import Battle.Objects.Mover;
+
 /**
  *
  * @author elkyur
@@ -18,7 +20,7 @@ public class TerrainType {
         this.movementcosts = move;
     }
 
-    public double returnMovementcost() {
+    public double returnMovementcost(Mover d) {
 
         return movementcosts;
     }
