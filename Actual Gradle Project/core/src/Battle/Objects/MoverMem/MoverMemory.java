@@ -27,6 +27,10 @@ public class MoverMemory {
 
     }
 
+    public PointMemory returnPointMemory(BNode node) {
+        return mapToPointmemory.get(node);
+    }
+
     public HashSet<BNode> returnGreen() {
         return greenpoints;
 

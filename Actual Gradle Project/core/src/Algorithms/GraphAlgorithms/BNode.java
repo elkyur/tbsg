@@ -6,6 +6,7 @@
 package Algorithms.GraphAlgorithms;
 
 import Battle.Field.SquareField.SquareFieldPoint;
+import Battle.Objects.Mover;
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 
@@ -23,7 +24,7 @@ public abstract class BNode<Obj> {
 
     public abstract Obj returnObject();
 
-    public abstract double groundCost();
+    public abstract double groundCost(Mover d);
 
     public BNode() {
         this.neighbours = new LinkedList<BNode>();

@@ -16,6 +16,7 @@ public class Unit {
     
     private UnitType ut;
     private int currHP;
+    
     //Effect one list OR multiple list own for all example Spells effect, ect.
     
     

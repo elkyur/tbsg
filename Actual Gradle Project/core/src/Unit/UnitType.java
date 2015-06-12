@@ -36,7 +36,7 @@ public class UnitType {
     	return unitCastle;
     }
     
-    private int returnTier(){
+    public int returnTier(){
     	return unitTier;
     }
 }

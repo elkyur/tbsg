@@ -14,7 +14,7 @@ import Unit.UnitStack;
  *
  * @author elkyur
  */
-public class BattleStack extends Mover implements BattleObject {
+public class BattleStack extends Mover {
 
     private LinkedList<UnitStack> stacks;
     
