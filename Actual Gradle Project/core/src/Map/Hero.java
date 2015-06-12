@@ -12,19 +12,25 @@ package Map;
  */
 
 import java.util.List;
-import  java.util.ArrayList;
+import java.util.ArrayList;
+import Unit.UnitStack;
+import Unit.Unit;
 
-public class Hero {
-    String name;
-    int defence;
-    int attack;
-    int speed;
-    int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
-    int[] stackId = new int[]{0,0,0,0,0,0,0,0};
-    int[] stackSize = new int[]{0,0,0,0,0,0,0,0};
-    int[] spellbook = new int[100];
-    List<Integer> items=new ArrayList<Integer>();
-    List<Integer> wearedItems=new ArrayList<Integer>();
+public class Hero extends UnitReceiver{
+   private String name;
+    private int defence;
+   private int attack;
+    private int speed;
+   private int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
+
+   private int[] spellbook = new int[100];
+   private UnitStack[] stacks=new UnitStack[8];
+   private List<Integer> items=new ArrayList<Integer>();
+   private List<Integer> wearedItems=new ArrayList<Integer>();
+
+    public Hero() {
+    }
+    
     
     
     
@@ -36,32 +42,31 @@ public class Hero {
         this.speed = speed;
         this.viewRange = viewRange;
     }
+
     
-    boolean putArmy(int armyID,int armySize,int stack){
-        if(stackId[stack]==armyID||stackId[stack]==0){
-           stackId[stack]=armyID;
-           stackSize[stack]+=armySize;
-           return true;
-        } 
-        System.out.println("There are different units in this stack.");
-        return false;
+    public boolean receiveArmy(int stack, UnitStack incoming) {
+        return super.receiveArmy(stack, incoming, this.stacks); 
     }
     
-    void removeArmy(int stack, int armySize){
-        if(stackSize[stack]>armySize){
-            armySize=0;
-        }else{
-            stackSize[stack] -= armySize;
-        }
+   public void testHoutput(){
+       int i=7;
+       while(i>=0){
+           if(stacks[i]==null){
+               System.out.println("null");
+           }else{
+               stacks[i].testo();
+           }
+           System.out.println("*");
+           i--;
+       }
+   }
+    
+    public void removeArmy(int stack, int armySize){
+        
     }
     
-    boolean splitArmy(int from, int to,int armySize){
-        if(stackId[from]!=stackId[to]||stackSize[from]>armySize){
-            System.out.println("Different types or too many.");
-            return false;
-        }
-           this.putArmy(stackId[from], armySize, to);
-           this.removeArmy(from, armySize);
+    public boolean splitArmy(int from, int to,int armySize){
+       
            
         return true;
     }
