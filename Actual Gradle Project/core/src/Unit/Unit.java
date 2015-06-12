@@ -16,12 +16,17 @@ public class Unit {
     
     private UnitType ut;
     private int currHP;
+    private String testingName;
     //Effect one list OR multiple list own for all example Spells effect, ect.
     
     
-    public Unit()
+    public Unit(String s)
     {
-    	
+    	this.testingName=s;
+    }
+    
+    public void testOut(){
+        System.out.println(testingName);
     }
     
     public void setAttributes(int[] atr)
@@ -33,6 +38,15 @@ public class Unit {
 	   return ut;
    }
 
+    
+    public boolean equals(Unit u) {
+        if(this.ut.equals(u.returnUnitType())){
+            return true;
+        }
+        return false;
+    }
+
+   
     
     
 }

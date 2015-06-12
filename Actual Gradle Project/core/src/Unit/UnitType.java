@@ -12,14 +12,15 @@ package Unit;
  */
 public class UnitType {
 	
-	private int maxhp;
-    private int maxdamage;
-    private int mindamage;
+	private int maxHp;
+    private int maXdamage;
+    private int miNdamage;
     private int range;
-    private int movementgrids;
-    private int atkskill;
-    private int defenseskill;
-    private int freq;
+    private int speed; // Speed 100 means 1 square
+    private int attackSkill;
+    private int defenseSkill;
+    private int freqvenss; // freqvenss 1000 means 1
+    private int movementType; //0-Walk 1-Fly 2-Teleport
     private String unitName;
     private String unitCastle;
     private int unitTier; // example tier 1 is 10, and upgrades goes 11,12 ect.
@@ -36,7 +37,18 @@ public class UnitType {
     	return unitCastle;
     }
     
-    private int returnTier(){
+    public int returnTier(){
     	return unitTier;
     }
+
+    
+    public boolean equals(UnitType u) {
+        if(this.unitTier==u.returnTier()&&unitCastle.equals(this.unitCastle)) {
+            return true;
+        } 
+        return false;
+    }
+    
+    
+    
 }
