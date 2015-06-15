@@ -32,11 +32,16 @@ public class testMain {
            UnitStack gg = new UnitStack();
             a =new Unit("D");
             gg.addUnit(a);
+            a =new Unit("B");
+            gg.addUnit(a);
             Hero h = new Hero();
+            ArrayList<Integer> hh=new ArrayList<Integer>();
+            hh.add(0);
             
-            h.receiveArmy(7, otstack);
+            h.receiveStack(7, gg);
             h.testHoutput();
-             h.receiveArmy(7, gg);
+            System.out.println("***********");
+            h.receiveStack(6, h.sendStack(7, hh));
             h.testHoutput();
             //for(Unit u:otstack.returnUnitsAsArrayList()){
             //    u.testOut();
