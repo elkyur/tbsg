@@ -10,10 +10,10 @@ package Map;
  * @author alexey
  */
 public abstract class Item {
-    final String name;
-    final int wear; //0-cant wear 1-head 2 hands 3-chest...
-    final boolean bottle;
-    final int id;
+    final private String name;
+    final private int wear; //0-cant wear 1-head 2 hands 3-chest...
+    final private boolean bottle;
+    final private int id;
 
     public Item(String name, int wear ,boolean bottle, int id) {
         this.name = name;

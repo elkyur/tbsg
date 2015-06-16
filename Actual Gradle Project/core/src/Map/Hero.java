@@ -16,6 +16,7 @@ import  java.util.ArrayList;
 import Unit.UnitStack;
 import Unit.Unit;
 import Map.Army;
+import Map.HeroItems;
 
 public class Hero {
    private String name;
@@ -25,9 +26,9 @@ public class Hero {
    private int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
 
    private List<Integer> spellbook=new ArrayList<Integer>();
-   private Army army=new Army();
+   private Army army=new Army(8);
    private List<Item> items=new ArrayList<Item>();
-   private int[] wearedItems=new int[15];
+   private HeroItems wearedItems=new HeroItems();
 
     public Hero() {
     }
@@ -65,9 +66,23 @@ public class Hero {
     public void addItem(Item item){
         items.add(item);
     }
-    /*public boolean wearItem(int from, int where){
-        
-    }*/
+    
+    public boolean wearItem(int from, int where){
+        if(wearedItems.canIPut(where, items.get(from))==false){
+            return false;
+        }
+        Item taken=wearedItems.take(where);
+        if(taken!=null){
+            items.add(taken);
+        }
+        wearedItems.put(where, items.get(from));
+        items.remove(from);
+        return true;
+    }
+    
+    public Item takeWeared(int place){
+        return wearedItems.take(place);
+    }
     
 
     public int getAttack() {
