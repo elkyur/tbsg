@@ -26,6 +26,7 @@ public class Hero {
    private int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
 
    private List<Integer> spellbook=new ArrayList<Integer>();
+   private List<Integer> skills=new ArrayList<Integer>();
    private Army army=new Army(8);
    private List<Item> items=new ArrayList<Item>();
    private HeroItems wearedItems=new HeroItems();
@@ -44,7 +45,16 @@ public class Hero {
         this.speed = speed;
         this.viewRange = viewRange;
     }
+    
+     public void addSpell(int spell){
+         spellbook.add(spell);
+     }
+    
+    public void addSkill(int skill){
+         skills.add(skill);
+     }
 
+    //*********Army methods********
     
     public boolean receiveStack(int stack, UnitStack incoming) {
         return army.receiveStack(stack, incoming);
@@ -62,6 +72,8 @@ public class Hero {
     public boolean splitArmy(int from, int to,ArrayList<Integer> places){
        return army.splitStack(from, to, places);
     }
+    
+    //******Item methods*******
     
     public void addItem(Item item){
         items.add(item);
@@ -84,8 +96,24 @@ public class Hero {
         return wearedItems.take(place);
     }
     
+   //*******Stat Increasers*******
 
-    public int getAttack() {
+    public void moreAttack(int attack) {
+        this.attack += attack;
+    }
+
+    public void moreDefence(int defence) {
+        this.defence += defence;
+    }
+
+    public void moreSpeed(int speed) {
+        this.speed = +speed;
+    }
+
+     //**********GETTERS********
+     
+     
+     public int getAttack() {
         return attack;
     }
 
@@ -100,23 +128,30 @@ public class Hero {
     public int getSpeed() {
         return speed;
     }
-
-    public void moreAttack(int attack) {
-        this.attack += attack;
+     
+    public Army getArmy() {
+        return army;
     }
 
-    public void moreDefence(int defence) {
-        this.defence += defence;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void moreSpeed(int speed) {
-        this.speed = +speed;
+    public List<Integer> getSkills() {
+        return skills;
     }
 
+    public List<Integer> getSpellbook() {
+        return spellbook;
+    }
+
+    public int getViewRange() {
+        return viewRange;
+    }
+
+    public HeroItems getWearedItems() {
+        return wearedItems;
+    }
     
-     public void testHoutput(){
-      army.testHoutput();
-   }
-    
-    
+     
 }
