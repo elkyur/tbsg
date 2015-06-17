@@ -20,7 +20,10 @@ public class UnitStack{
     public UnitStack() {
 
     }
-
+    public UnitStack(UnitStack another){
+        this.units=another.returnUnitsAsArrayList();
+    }
+    
     public ArrayList<Unit> returnUnitsAsArrayList() {
         return units;
     }
@@ -57,6 +60,9 @@ public class UnitStack{
         for(Unit un : l){
             this.units.add(un);
         }
+    }
+    public UnitStack sendAll(){
+        return this;
     }
     
     public UnitStack sendStack(ArrayList<Integer> places){

@@ -12,21 +12,24 @@ package Map;
  */
 
 import java.util.List;
-import java.util.ArrayList;
+import  java.util.ArrayList;
 import Unit.UnitStack;
 import Unit.Unit;
+import Map.Army;
+import Map.HeroItems;
 
-public class Hero extends UnitReceiver{
+public class Hero {
    private String name;
     private int defence;
    private int attack;
     private int speed;
    private int viewRange; //Paska muuutujanimi. Pit'is olla heron nakoetaisyys. Keksikaa parempi.
 
-   private int[] spellbook = new int[100];
-   private UnitStack[] stacks=new UnitStack[8];
-   private List<Integer> items=new ArrayList<Integer>();
-   private List<Integer> wearedItems=new ArrayList<Integer>();
+   private List<Integer> spellbook=new ArrayList<Integer>();
+   private List<Integer> skills=new ArrayList<Integer>();
+   private Army army=new Army(8);
+   private List<Item> items=new ArrayList<Item>();
+   private HeroItems wearedItems=new HeroItems();
 
     public Hero() {
     }
@@ -42,40 +45,75 @@ public class Hero extends UnitReceiver{
         this.speed = speed;
         this.viewRange = viewRange;
     }
+    
+     public void addSpell(int spell){
+         spellbook.add(spell);
+     }
+    
+    public void addSkill(int skill){
+         skills.add(skill);
+     }
 
+    //*********Army methods********
     
-    public boolean receiveArmy(int stack, UnitStack incoming) {
-        return super.receiveArmy(stack, incoming, this.stacks); 
+    public boolean receiveStack(int stack, UnitStack incoming) {
+        return army.receiveStack(stack, incoming);
     }
     
-   public void testHoutput(){
-       int i=7;
-       while(i>=0){
-           if(stacks[i]==null){
-               System.out.println("null");
-           }else{
-               stacks[i].testo();
-           }
-           System.out.println("*");
-           i--;
-       }
-   }
-    
-    public void removeArmy(int stack, int armySize){
-        
+    public UnitStack sendStack(int stack, ArrayList<Integer> places){
+        return army.sendStack(stack, places);
     }
     
-    public boolean splitArmy(int from, int to,int armySize){
-       
-           
+    
+    public UnitStack sendWholeStack(int stack){
+        return army.sendWholeStack(stack);
+    }
+    
+    public boolean splitArmy(int from, int to,ArrayList<Integer> places){
+       return army.splitStack(from, to, places);
+    }
+    
+    //******Item methods*******
+    
+    public void addItem(Item item){
+        items.add(item);
+    }
+    
+    public boolean wearItem(int from, int where){
+        if(wearedItems.canIPut(where, items.get(from))==false){
+            return false;
+        }
+        Item taken=wearedItems.take(where);
+        if(taken!=null){
+            items.add(taken);
+        }
+        wearedItems.put(where, items.get(from));
+        items.remove(from);
         return true;
     }
     
+    public Item takeWeared(int place){
+        return wearedItems.take(place);
+    }
     
-    
-    
+   //*******Stat Increasers*******
 
-    public int getAttack() {
+    public void moreAttack(int attack) {
+        this.attack += attack;
+    }
+
+    public void moreDefence(int defence) {
+        this.defence += defence;
+    }
+
+    public void moreSpeed(int speed) {
+        this.speed = +speed;
+    }
+
+     //**********GETTERS********
+     
+     
+     public int getAttack() {
         return attack;
     }
 
@@ -90,21 +128,30 @@ public class Hero extends UnitReceiver{
     public int getSpeed() {
         return speed;
     }
-
-    public void moreAttack(int attack) {
-        this.attack += attack;
+     
+    public Army getArmy() {
+        return army;
     }
 
-    public void moreDefence(int defence) {
-        this.defence += defence;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void moreSpeed(int speed) {
-        this.speed = +speed;
+    public List<Integer> getSkills() {
+        return skills;
     }
 
+    public List<Integer> getSpellbook() {
+        return spellbook;
+    }
+
+    public int getViewRange() {
+        return viewRange;
+    }
+
+    public HeroItems getWearedItems() {
+        return wearedItems;
+    }
     
-    
-    
-    
+     
 }
