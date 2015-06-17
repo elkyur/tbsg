@@ -10,6 +10,12 @@ package Battle.Logic;
  *
  * @author elkyur
  */
-public class logic {
+public class Logic {
+    
+    public Logic()
+    {
+    
+    
+    }
     
 }
