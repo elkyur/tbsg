@@ -14,7 +14,16 @@ import  java.util.ArrayList;
 import Unit.UnitStack;
 import Unit.Unit; 
 public class Army {
-    private UnitStack[] stacks=new UnitStack[8];
+    private UnitStack[] stacks;
+
+    public Army(int size) {
+        
+        stacks=new UnitStack[size];
+    }
+    
+    
+    
+    
     
     public UnitStack sendStack(int stack, ArrayList<Integer> places){
         if(stacks[stack]==null){
