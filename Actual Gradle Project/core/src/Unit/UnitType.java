@@ -12,6 +12,7 @@ package Unit;
  */
 public class UnitType {
 	
+
 	private int maxHp;
     private int maXdamage;
     private int miNdamage;
@@ -48,7 +49,4 @@ public class UnitType {
         } 
         return false;
     }
-    
-    
-    
 }

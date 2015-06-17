@@ -39,14 +39,11 @@ public class Unit {
    }
 
     
+
     public boolean equals(Unit u) {
         if(this.ut.equals(u.returnUnitType())){
             return true;
         }
         return false;
     }
-
-   
-    
-    
 }
