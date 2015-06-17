@@ -37,6 +37,7 @@ public class HexaField extends BattleGraph {
         }
 
     }
+    
 
     private void initNeighboo() {
 
