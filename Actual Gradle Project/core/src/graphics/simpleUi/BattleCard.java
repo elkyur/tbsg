@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import graphics.components.ImagePanel;
 
@@ -69,25 +70,29 @@ public class BattleCard {
 		}
 		p.setSize(xdim, ydim);
 		p.setLayout(new BoxLayout(p,BoxLayout.PAGE_AXIS));
-		p.add(createTextField(this.name, (int)(2.25*(ydim-xdim)/(6+1.5+2.25))));
+		p.add(createTextField(this.name, (int)(2.25*(ydim-xdim*0.75)/(6+1.5+2.25))));
 		File f = new File("graphics/Units/UnitPicture/" + this.name + ".gif");
+		Image dimg;
+		BufferedImage img;
 		if(f.exists()){
-			BufferedImage img = ImageIO.read(f);
-			Image dimg = img.getScaledInstance(xdim, xdim, Image.SCALE_SMOOTH);
+			img = ImageIO.read(f);
+			dimg = img.getScaledInstance((int)(xdim*0.75), (int)(xdim*0.9), Image.SCALE_SMOOTH);
 			p.add(new JLabel(new ImageIcon(dimg)));
 		}else{
 			f = new File("graphics/Units/UnitPictures/testPic.gif");
-			BufferedImage img = ImageIO.read(f);
-			Image dimg = img.getScaledInstance(xdim, xdim, Image.SCALE_SMOOTH);
-			p.add(new JLabel(new ImageIcon(dimg)));
+			img = ImageIO.read(f);
 		}
-		p.add(createTextField(this.castleNtype, (int)(1.5*(ydim-xdim)/(6+1.5+2.25))));
-		p.add(createTextField("atk: " + this.atk,(int)((ydim-xdim)/(6+1.5+2.25))));
-		p.add(createTextField("def: " + this.def,(int)((ydim-xdim)/(6+1.5+2.25))));
-		p.add(createTextField("hp: " + this.maxHP,(int)((ydim-xdim)/(6+1.5+2.25))));
-		p.add(createTextField("dmg: " + this.dmgMin + "-" + this.dmgMax,(int)((ydim-xdim)/(6+1.5+2.25))));
-		p.add(createTextField("freq: " + this.freqvens/1000 + "." + (int)((this.freqvens/1000.0-this.freqvens/1000)*10), (int)((ydim-xdim)/(6+1.5+2.25))));
-		p.add(createTextField("speed: " + this.speed/100,(int)((ydim-xdim)/(6+1.5+2.25))));
+		dimg = img.getScaledInstance((int)(xdim*0.9), (int)(xdim*0.75), Image.SCALE_SMOOTH);
+		JLabel temp = new JLabel(new ImageIcon(dimg));
+		temp.setVerticalAlignment(JLabel.CENTER);
+		p.add(temp);
+		p.add(createTextField(this.castleNtype, (int)(1.5*(ydim-xdim*0.75)/(6+1.5+2.25))));
+		p.add(createTextField("atk: " + this.atk,(int)((ydim-xdim*0.75)/(6+1.5+2.25))));
+		p.add(createTextField("def: " + this.def,(int)((ydim-xdim*0.75)/(6+1.5+2.25))));
+		p.add(createTextField("hp: " + this.maxHP,(int)((ydim-xdim*0.75)/(6+1.5+2.25))));
+		p.add(createTextField("dmg: " + this.dmgMin + "-" + this.dmgMax,(int)((ydim-xdim*0.75)/(6+1.5+2.25))));
+		p.add(createTextField("freq: " + this.freqvens/1000 + "." + (int)((this.freqvens/1000.0-this.freqvens/1000)*10), (int)((ydim-xdim*0.75)/(6+1.5+2.25))));
+		p.add(createTextField("speed: " + this.speed/100,(int)((ydim-xdim*0.75)/(6+1.5+2.25))));
 		return p;
 	}
 	
