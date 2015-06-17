@@ -7,6 +7,7 @@ package Battle.Field.SquareField;
 
 import Battle.Field.Abstract.Node;
 import Battle.Objects.BattleObject;
+import Battle.Objects.Mover;
 import Battle.Terrain.TerrainType;
 import java.util.ArrayDeque;
 import java.util.LinkedList;
@@ -58,8 +59,8 @@ public class SquareFieldPoint<Obj> extends Node {
     }
 
     @Override
-    public double groundCost() {
-        return this.terrain.returnMovementcost();
+    public double groundCost(Mover d) {
+        return this.terrain.returnMovementcost(d);
     }
 
 }

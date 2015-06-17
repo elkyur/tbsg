@@ -72,7 +72,7 @@ public class Dijstra {
                     continue;
                 }
 
-                double alt = u.returnDist() + v.groundCost();
+                double alt = u.returnDist() + v.groundCost(m);
                 if ((alt < v.returnDist())) {
                     v.defineDist(alt);
                     v.defineCameFrom(u);

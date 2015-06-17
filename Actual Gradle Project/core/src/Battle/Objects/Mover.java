@@ -12,7 +12,7 @@ import Battle.Objects.MoverMem.MoverMemory;
  *
  * @author elkyur Kaikkien liikkuvien "alkuluokka"
  */
-public abstract class Mover {
+public abstract class Mover implements BattleObject {
 
     private Node location;
     private int entrancecode;
