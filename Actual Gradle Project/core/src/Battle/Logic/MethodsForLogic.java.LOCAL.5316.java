@@ -48,8 +48,6 @@ public class MethodsForLogic {
 
         return pokemonTeam;
     }
-    
-    
 
     public BNode tryToGoOnYellowPoint(Mover movaaja, BNode yellow, double speedofMover) {
         MoverMemory pikachu = movaaja.returnMem();

@@ -14,8 +14,13 @@ import Random.randomOwner;
 import java.util.LinkedList;
 
 /**
+<<<<<<< HEAD
  *
  * @author elkyur Some methods for logic
+=======
+ * 
+ * Some methods for logic
+>>>>>>> af29c9259afb207f6b7832d697a6c9442545f3c4
  */
 public class MethodsForLogic {
 
@@ -48,8 +53,11 @@ public class MethodsForLogic {
 
         return pokemonTeam;
     }
+<<<<<<< HEAD
+=======
     
     
+>>>>>>> af29c9259afb207f6b7832d697a6c9442545f3c4
 
     public BNode tryToGoOnYellowPoint(Mover movaaja, BNode yellow, double speedofMover) {
         MoverMemory pikachu = movaaja.returnMem();
