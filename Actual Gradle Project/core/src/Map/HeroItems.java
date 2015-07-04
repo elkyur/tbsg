@@ -10,24 +10,30 @@ package Map;
  * @author alexey
  */
 import java.util.ArrayList;
-import Map.ItemPlace;
+
 import Map.Item;
 public class HeroItems {
-    private ArrayList<ItemPlace> items =new ArrayList<ItemPlace>();
+    private Item[] items =new Item[15];
 
     public HeroItems() {
-        items.add(new ItemPlace(0)); //Generator over here;
+        
     }
     
     public boolean canIPut(int place, Item item){
-        return items.get(place).canIPut(item);
+        if(item.getWear()==place){
+            return true;
+        }
+        return false;
     }
     
     public Item take(int place){
-        return items.get(place).take();
+        if(items[place]==null){
+            return null;
+        }
+        return items[place];
     }
     
     public void put(int place, Item item){
-        items.get(place).put(item);
+        items[place]=item;
     }
 }
